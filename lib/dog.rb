@@ -56,7 +56,8 @@ class Dog
       SELECT * FROM dogs WHERE name = ? AND breed = ?
       SQL
 
-    results = DB[:conn].execute(sql, attributes[:name], attributes[:breed])
+    results = DB[:conn].execute(sql, attributes[:name], attributes[:breed]).first
+    if results then self.find_by_id(results[0]) else self.create(results)
     #binding.pry
   end
 

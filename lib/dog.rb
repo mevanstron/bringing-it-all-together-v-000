@@ -57,7 +57,7 @@ class Dog
       SQL
 
     results = DB[:conn].execute(sql, attributes[:name], attributes[:breed])
-    binding.pry
+    #binding.pry
   end
 
 end

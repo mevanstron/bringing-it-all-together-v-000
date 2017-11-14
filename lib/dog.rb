@@ -39,8 +39,8 @@ class Dog
   end
 
   def self.create (attributes)
-    dog = Dog.new(name: attributes[:name], breed: attributes[:breed])
-    binding.pry
+    Dog.new(name: attributes[:name], breed: attributes[:breed]).save
+    #binding.pry
   end
 
 end

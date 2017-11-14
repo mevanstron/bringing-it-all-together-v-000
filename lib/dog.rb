@@ -2,7 +2,7 @@ class Dog
   attr_accessor :name, :breed
   attr_reader :id
 
-  def initialize (id: nil, name:, breed:)
+  def initialize(id: nil, name:, breed:)
     @name = name
     @breed = breed
     @id = id
@@ -38,9 +38,17 @@ class Dog
     self
   end
 
-  def self.create (attributes)
+  def self.create(attributes)
     Dog.new(name: attributes[:name], breed: attributes[:breed]).save
-    #binding.pry
+  end
+
+  def self.find_by_id(id)
+    sql = <<-SQL
+      SELECT * FROM dogs WHERE id = ?
+      SQL
+
+    results = DB[:conn].execute(sql, id).first
+    Dog.new(id: results[0], name: results[1], breed: results[2])
   end
 
 end

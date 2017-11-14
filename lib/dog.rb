@@ -69,7 +69,8 @@ class Dog
       SELECT * FROM dogs WHERE name = ?
       SQL
 
-    DB[:conn].execute(sql, name)
+    results = DB[:conn].execute(sql, name).first
+    self.new_from_db(results)
   end
 
 end

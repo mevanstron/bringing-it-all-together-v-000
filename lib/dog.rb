@@ -57,7 +57,7 @@ class Dog
       SQL
 
     results = DB[:conn].execute(sql, attributes[:name], attributes[:breed]).first
-    if results then self.find_by_id(results[0]) else self.create(results)
+    if results then self.find_by_id(results[0]) else self.create(results) end
     #binding.pry
   end
 

@@ -60,8 +60,8 @@ class Dog
     if results then self.find_by_id(results[0]) else self.create(attributes) end
   end
 
-  def self.new_from_db(attributes)
-    binding.pry
+  def self.new_from_db(row)
+    
   end
 
 end

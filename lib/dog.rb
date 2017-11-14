@@ -51,8 +51,8 @@ class Dog
     Dog.new(id: results[0], name: results[1], breed: results[2])
   end
 
-  def self.find_or_create_by
-
+  def self.find_or_create_by(dog)
+    binding.pry
   end
 
 end
